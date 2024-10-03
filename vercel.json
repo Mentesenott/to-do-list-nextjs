@@ -1,7 +1,7 @@
 {
     "redirects": [
       {
-        "source": "/todo",
+        "source": "/",
         "destination": "/todo",
         "permanent": true
       }
