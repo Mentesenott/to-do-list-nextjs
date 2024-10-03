@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Head from 'next/head';
 
 export default function Todo() {
   const [todos, setTodos] = useState([]);
@@ -19,33 +18,25 @@ export default function Todo() {
   };
 
   return (
-    <>
-      <Head>
-        <title>To-Do App</title>
-        <meta name="description" content="A simple to-do list application" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-
-      <div className="container">
-        <h1>My To-Do List</h1>
-        <div className="input-wrapper">
-          <input
-            type="text"
-            placeholder="Add a new task..."
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-          />
-          <button onClick={addTodo}>Add</button>
-        </div>
-        <ul>
-          {todos.map((todo, index) => (
-            <li key={index}>
-              {todo}
-              <button onClick={() => removeTodo(index)} className="delete-btn">Delete</button>
-            </li>
-          ))}
-        </ul>
+    <div className="container">
+      <h1>My To-Do List</h1>
+      <div className="input-wrapper">
+        <input
+          type="text"
+          placeholder="Add a new task..."
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <button onClick={addTodo}>Add</button>
       </div>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>
+            {todo}
+            <button onClick={() => removeTodo(index)} className="delete-btn">Delete</button>
+          </li>
+        ))}
+      </ul>
 
       <style jsx>{`
         .container {
@@ -108,6 +99,6 @@ export default function Todo() {
           background-color: darkred;
         }
       `}</style>
-    </>
+    </div>
   );
 }
